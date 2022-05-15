@@ -21,7 +21,7 @@ public class Olive extends AbstractPizzaDecorator{
     @Override
     public String getIngredients() {
 
-        return super.getIngredients()+" "+  ToppingType.OLIVE.getReadableNames();
+        return super.getIngredients()+" ,"+  ToppingType.OLIVE.getReadableNames();
 
     }
 }

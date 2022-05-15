@@ -21,7 +21,7 @@ public class RicottaCheese extends AbstractPizzaDecorator{
     @Override
     public String getIngredients() {
 
-        return super.getIngredients()+" "+  ToppingType.RICOTTA_CHEESE.getReadableNames();
+        return super.getIngredients()+" ,"+  ToppingType.RICOTTA_CHEESE.getReadableNames();
 
     }
 }

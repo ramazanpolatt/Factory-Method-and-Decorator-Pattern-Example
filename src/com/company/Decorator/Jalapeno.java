@@ -21,7 +21,7 @@ public class Jalapeno extends AbstractPizzaDecorator{
     @Override
     public String getIngredients() {
 
-        return super.getIngredients()+" "+  ToppingType.JALAPENO.getReadableNames();
+        return super.getIngredients()+" ,"+  ToppingType.JALAPENO.getReadableNames();
 
     }
 }

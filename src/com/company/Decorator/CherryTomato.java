@@ -21,7 +21,7 @@ public class CherryTomato extends AbstractPizzaDecorator{
     @Override
     public String getIngredients() {
 
-        return super.getIngredients()+" "+  ToppingType.CHERRY_TOMATO.getReadableNames();
+        return super.getIngredients()+" ,"+  ToppingType.CHERRY_TOMATO.getReadableNames();
 
     }
 }

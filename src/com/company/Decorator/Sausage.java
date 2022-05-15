@@ -21,7 +21,7 @@ public class Sausage extends AbstractPizzaDecorator{
     @Override
     public String getIngredients() {
 
-        return super.getIngredients()+" "+ ToppingType.SAUSAGE.getReadableNames();
+        return super.getIngredients()+" ,"+ ToppingType.SAUSAGE.getReadableNames();
 
     }
 

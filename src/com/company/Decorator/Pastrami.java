@@ -21,7 +21,7 @@ public class Pastrami extends AbstractPizzaDecorator{
     @Override
     public String getIngredients() {
 
-        return super.getIngredients()+" "+  ToppingType.PASTRAMI.getReadableNames();
+        return super.getIngredients()+" ,"+  ToppingType.PASTRAMI.getReadableNames();
 
     }
 }

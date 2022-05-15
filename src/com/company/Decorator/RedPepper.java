@@ -21,7 +21,7 @@ public class RedPepper extends AbstractPizzaDecorator{
     @Override
     public String getIngredients() {
 
-        return super.getIngredients()+" "+  ToppingType.RED_PEPPER.getReadableNames();
+        return super.getIngredients()+" ,"+  ToppingType.RED_PEPPER.getReadableNames();
 
     }
 }

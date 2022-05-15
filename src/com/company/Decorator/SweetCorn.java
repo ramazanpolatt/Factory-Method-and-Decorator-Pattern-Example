@@ -21,7 +21,7 @@ public class SweetCorn extends AbstractPizzaDecorator{
     @Override
     public String getIngredients() {
 
-        return super.getIngredients()+" "+ ToppingType.SWEET_CORN.getReadableNames();
+        return super.getIngredients()+" ,"+ ToppingType.SWEET_CORN.getReadableNames();
 
     }
 

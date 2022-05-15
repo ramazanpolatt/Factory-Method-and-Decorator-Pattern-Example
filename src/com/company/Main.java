@@ -44,12 +44,6 @@ public class Main {
 */
 
         PizzaStoreApp pizzaStoreApp = new PizzaStoreApp();
-        pizzaStoreApp.showAvailablePizzaStores();
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please select a pizzaStore");
-        int pizzaStoreIndex= scanner.nextInt();
-        pizzaStoreApp.selectPizzaStore(pizzaStoreIndex);
-        pizzaStoreApp.showAvailablePizzas();
-
+        pizzaStoreApp.run();
     }
 }

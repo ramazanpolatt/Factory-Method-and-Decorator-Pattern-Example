@@ -21,7 +21,7 @@ public class ParmesanCheese extends AbstractPizzaDecorator{
     @Override
     public String getIngredients() {
 
-        return super.getIngredients()+" "+  ToppingType.PARMESAN_CHEESE.getReadableNames();
+        return super.getIngredients()+" ,"+  ToppingType.PARMESAN_CHEESE.getReadableNames();
 
     }
 

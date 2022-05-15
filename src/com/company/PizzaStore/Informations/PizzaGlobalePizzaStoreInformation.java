@@ -42,12 +42,12 @@ public class PizzaGlobalePizzaStoreInformation extends APizzaInformations {
 
         @Override
         public int getCost() {
-            return 0;
+            return cost;
         }
 
         @Override
         public String getIngredients() {
-            return null;
+            return ingredients;
         }
     }
 

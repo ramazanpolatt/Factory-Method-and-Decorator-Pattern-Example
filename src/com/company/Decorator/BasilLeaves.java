@@ -21,7 +21,7 @@ public class BasilLeaves extends AbstractPizzaDecorator{
     @Override
     public String getIngredients() {
 
-        return super.getIngredients()+" "+  ToppingType.BASIL_LEAVES.getReadableNames();
+        return super.getIngredients()+" ,"+  ToppingType.BASIL_LEAVES.getReadableNames();
 
     }
 }

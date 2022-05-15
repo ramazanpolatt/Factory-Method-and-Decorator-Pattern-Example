@@ -21,7 +21,7 @@ public class Pepperoni extends AbstractPizzaDecorator{
     @Override
     public String getIngredients() {
 
-        return super.getIngredients()+" "+  ToppingType.PEPPERONI.getReadableNames();
+        return super.getIngredients()+" ,"+  ToppingType.PEPPERONI.getReadableNames();
 
     }
 }

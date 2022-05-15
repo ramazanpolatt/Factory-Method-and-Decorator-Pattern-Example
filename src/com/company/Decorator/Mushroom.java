@@ -21,7 +21,7 @@ public class Mushroom extends AbstractPizzaDecorator{
     @Override
     public String getIngredients() {
 
-        return super.getIngredients()+" "+  ToppingType.MUSHROOM.getReadableNames();
+        return super.getIngredients()+" ,"+  ToppingType.MUSHROOM.getReadableNames();
 
     }
 }
