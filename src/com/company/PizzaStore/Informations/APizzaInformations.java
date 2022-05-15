@@ -2,8 +2,8 @@ package com.company.PizzaStore.Informations;
 
 import com.company.Pizza.PizzaType;
 import com.company.Pizza.ToppingType;
-import com.company.IPizzaStorePizzaInformation;
-import com.company.IPizzaStoreToppingsInformation;
+import com.company.Interfaces.IPizzaStorePizzaInformation;
+import com.company.Interfaces.IPizzaStoreToppingsInformation;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
