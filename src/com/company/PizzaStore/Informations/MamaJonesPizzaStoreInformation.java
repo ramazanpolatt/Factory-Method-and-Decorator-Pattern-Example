@@ -45,7 +45,7 @@ public class MamaJonesPizzaStoreInformation extends APizzaInformations {
             return cost;
         }
 
-        public String getIngeridients() {
+        public String getIngredients() {
             return ingredients;
         }
 

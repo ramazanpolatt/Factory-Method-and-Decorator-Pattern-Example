@@ -1,5 +1,5 @@
 package com.company.Pizza;
 
 public enum PizzaType {
-    Margherita,Goat_Cheese,Four_Cheeses,Barbeque_Chicken,Smoked,Ranch_House,Pepperoni,Aegean,Mixed,Smoked_Ribs
+    MARGHERITA,GOAT_CHEESE,FOUR_CHEESES,BARBEQUE_CHICKEN,SMOKED,RANCH_HOUSE,PEPPERONI,AEGEAN,MIXED,SMOKED_RIBS
 }

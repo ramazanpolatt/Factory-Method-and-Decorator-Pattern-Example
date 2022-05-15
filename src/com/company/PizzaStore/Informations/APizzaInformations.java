@@ -39,7 +39,7 @@ public abstract class APizzaInformations {
         Map<PizzaType,String> tempList = new LinkedHashMap<>();
         List<PizzaType> tempPizzas = getAvailablePizzas();
         for (int i = 0; i < pizzaInfo.size(); i++) {
-            tempList.put(tempPizzas.get(i),pizzaInfo.get(i).getIngeridients());
+            tempList.put(tempPizzas.get(i),pizzaInfo.get(i).getIngredients());
         }
         return tempList;
     }

@@ -1,7 +1,7 @@
 package com.company.PizzaStore.Informations;
 
-import Interfaces.IPizzaStorePizzaInformation;
-import Interfaces.IPizzaStoreToppingsInformation;
+import com.company.IPizzaStorePizzaInformation;
+import com.company.IPizzaStoreToppingsInformation;
 
 import java.util.List;
 
@@ -42,7 +42,7 @@ public class PizzaHatPizzaStoreInformation extends APizzaInformations{
             return cost;
         }
 
-        public String getIngeridients() {
+        public String getIngredients() {
             return ingredients;
         }
 

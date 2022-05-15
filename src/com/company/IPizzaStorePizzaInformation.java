@@ -2,5 +2,5 @@ package com.company;
 
 public interface IPizzaStorePizzaInformation {
     int getCost();
-    String getIngeridients();
+    String getIngredients();
 }
