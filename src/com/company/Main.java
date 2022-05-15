@@ -9,6 +9,8 @@ import com.company.Pizza.PizzaType;
 import com.company.PizzaStore.AbstractPizzaStore;
 import com.company.PizzaStore.MamaJonesPizzaStore;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -23,7 +25,21 @@ public class Main {
             count+=1;
             System.out.println(count+"-)  "+info);
         }
-        System.out.println(pizzaStore.orderPizza(0));
+        IPizza selectedPizza= pizzaStore.orderPizza(0);
+
+        count=0;
+        for (String info:pizzaStore.getAvailableToppings()
+        ) {
+            count+=1;
+            System.out.println(count+"-)  "+info);
+        }
+
+
+
+        selectedPizza=pizzaStore.addTopping(selectedPizza,0);
+        System.out.println(selectedPizza);
+        selectedPizza=pizzaStore.addTopping(selectedPizza,1);
+        System.out.println(selectedPizza);
 
     }
 }

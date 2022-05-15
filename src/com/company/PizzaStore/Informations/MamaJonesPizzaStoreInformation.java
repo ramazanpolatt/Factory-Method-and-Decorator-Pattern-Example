@@ -1,6 +1,6 @@
 package com.company.PizzaStore.Informations;
-import com.company.IPizzaStorePizzaInformation;
-import com.company.IPizzaStoreToppingsInformation;
+import com.company.Interfaces.IPizzaStorePizzaInformation;
+import com.company.Interfaces.IPizzaStoreToppingsInformation;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class MamaJonesPizzaStoreInformation extends APizzaInformations {
 
 
    private enum MamaJonesPizzaInformation implements IPizzaStorePizzaInformation {
-       MARGHERITA(5,"Tomato_Sauce, Mozzarella_Cheese, Cherry_Tomato, Basil_Leaves"),
+       MARGHERITA(58,"Tomato_Sauce, Mozzarella_Cheese, Cherry_Tomato, Basil_Leaves"),
        AEGEAN(55,"Tomato Sauce, Mozzarella Cheese, Olive, Red Onion, Red Pepper"),
        MIXED(63,"Tomato Sauce, Mozzarella Cheese, Pepperoni, Sausage, Salami, Green Pepper"),
        BARBEQUE_CHICKEN(68,"Tomato Sauce, Mozzarella Cheese, Chicken Slices, Barbeque Sauce, Jalapeno"),

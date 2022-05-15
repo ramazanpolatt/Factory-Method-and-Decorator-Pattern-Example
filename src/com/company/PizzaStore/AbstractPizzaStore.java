@@ -69,15 +69,15 @@ public abstract class AbstractPizzaStore {
             System.out.println("PizzaTypeIndex must be valid");
             System.exit(0);
         }
-
-        return decorate(pizza,availableToppings.get(toppingIndex));
+        ToppingType desiredTopping = availableToppings.get(toppingIndex);
+        return decorate(pizza,desiredTopping,costOfToppings.get(desiredTopping));
 
 
 
 
     }
 
-    protected abstract IPizza decorate(IPizza pizza,ToppingType toppingType);
+    protected abstract IPizza decorate(IPizza pizza,ToppingType toppingType,int cost);
 
 
 

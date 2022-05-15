@@ -3,15 +3,15 @@ package com.company.Decorator;
 import com.company.Pizza.IPizza;
 import com.company.Pizza.ToppingType;
 
-public class ParmesanCheese extends AbstractPizzaDecorator{
-
-
+public class SweetCorn extends AbstractPizzaDecorator{
     private int cost;
 
-    public ParmesanCheese(IPizza pizza, int cost) {
+
+    public SweetCorn(IPizza pizza,int cost) {
         super(pizza);
-        this.cost = cost;
+        this.cost=cost;
     }
+
 
     @Override
     public int getCost() {
@@ -21,9 +21,8 @@ public class ParmesanCheese extends AbstractPizzaDecorator{
     @Override
     public String getIngredients() {
 
-        return super.getIngredients()+" "+  ToppingType.PARMESAN_CHEESE.getReadableNames();
+        return super.getIngredients()+" "+ ToppingType.SWEET_CORN.getReadableNames();
 
     }
-
 
 }

@@ -7,13 +7,14 @@ import com.company.Pizza.PizzaType;
 
 import com.company.Pizza.ToppingType;
 import com.company.PizzaStore.Informations.MamaJonesPizzaStoreInformation;
+import com.company.PizzaStore.Informations.PizzaHatPizzaStoreInformation;
 
 
-public  class MamaJonesPizzaStore extends AbstractPizzaStore{
+public  class PizzaHatStore extends AbstractPizzaStore{
 
-    public MamaJonesPizzaStore()
+    public PizzaHatStore()
     {
-        super(new MamaJonesPizzaStoreInformation());
+        super(new PizzaHatPizzaStoreInformation());
 
 
     }
@@ -35,7 +36,6 @@ public  class MamaJonesPizzaStore extends AbstractPizzaStore{
             case RICOTTA_CHEESE:
                 tempPizza=new RicottaCheese(pizza,cost);
                 break;
-
             case SAUSAGE:
                 tempPizza=new Sausage(pizza,cost);
                 break;
@@ -45,7 +45,6 @@ public  class MamaJonesPizzaStore extends AbstractPizzaStore{
             case SALAMI:
                 tempPizza=new Salami(pizza,cost);
                 break;
-
             case BASIL_LEAVES:
                 tempPizza=new BasilLeaves(pizza,cost);
                 break;
@@ -54,6 +53,12 @@ public  class MamaJonesPizzaStore extends AbstractPizzaStore{
                 break;
             case JALAPENO:
                 tempPizza=new Jalapeno(pizza,cost);
+                break;
+            case SWEET_CORN:
+                tempPizza= new SweetCorn(pizza,cost);
+                break;
+            case MUSHROOM:
+                tempPizza= new Mushroom(pizza,cost);
                 break;
             default:
                 System.out.println("Unexpected topping type");

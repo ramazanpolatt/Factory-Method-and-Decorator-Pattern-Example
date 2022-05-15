@@ -26,4 +26,8 @@ public abstract class AbstractPizzaDecorator  implements IPizza {
         return pizza.getPizzaType();
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s Pizza (%s) Cost: %d  ",getPizzaType(),getIngredients(),getCost());
+    }
 }
