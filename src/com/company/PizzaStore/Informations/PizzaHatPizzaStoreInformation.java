@@ -15,8 +15,8 @@ public class PizzaHatPizzaStoreInformation extends APizzaInformations{
 
 
     private enum PizzaStoreToppingsInformation implements IPizzaStoreToppingsInformation {
-        PARMESAN_CHEESE(5),OLIVE(3),RICOTTA_CHEESE(5),SAUSAGE(7),PEPPERONI(7),SALAMI(8)
-        ,BASIL_LEAVES(7),CHERRY_TOMATO(7),JALAPENO(4);
+        PARMESAN_CHEESE(4),OLIVE(3),SWEET_CORN(3),RICOTTA_CHEESE(5),SAUSAGE(8),PEPPERONI(8),SALAMI(9)
+        ,BASIL_LEAVES(5),CHERRY_TOMATO(6),MUSHROOM(7),JALAPENO(4);
 
         private PizzaStoreToppingsInformation(int cost) {
             this.cost = cost;

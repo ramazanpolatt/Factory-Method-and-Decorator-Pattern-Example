@@ -9,13 +9,16 @@ import java.util.List;
 import java.util.Map;
 
 public  class MamaJonesPizzaStore extends AbstractPizzaStore{
+    public MamaJonesPizzaStore(APizzaInformations storeInformation) {
+        super(storeInformation);
+    }
 
 
-    public MamaJonesPizzaStore()
+    /*public MamaJonesPizzaStore()
     {
 
 
-    }
+    }*/
 
     @Override
     protected void orderPizza(PizzaType pizzaType) {
