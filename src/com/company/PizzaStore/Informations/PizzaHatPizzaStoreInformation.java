@@ -12,9 +12,11 @@ public class PizzaHatPizzaStoreInformation extends APizzaInformations{
         super(List.of(PizzaHatPizzaInformation.values()), List.of(PizzaStoreToppingsInformation.values()));
     }
 
+
+
     private enum PizzaStoreToppingsInformation implements IPizzaStoreToppingsInformation {
-        Parmesan_Cheese(5),Olive(3),Ricotta_Chesee(5),Sausage(7),Pepperoni(7),Salami(8)
-        ,Basil_Leaves(7),Cherry_Tomato(7),Jalapeno(4);
+        PARMESAN_CHEESE(5),OLIVE(3),RICOTTA_CHEESE(5),SAUSAGE(7),PEPPERONI(7),SALAMI(8)
+        ,BASIL_LEAVES(7),CHERRY_TOMATO(7),JALAPENO(4);
 
         private PizzaStoreToppingsInformation(int cost) {
             this.cost = cost;
@@ -28,10 +30,10 @@ public class PizzaHatPizzaStoreInformation extends APizzaInformations{
 
 
     private enum PizzaHatPizzaInformation implements IPizzaStorePizzaInformation {
-        Ranch_House(50,"Tomato_Sauce, Mozzarella_Cheese, Salami, Mushroom"),
-        Margherita(53,"Tomato_Sauce, Mozzarella_Cheese, Cherry_Tomato, Basil_Leaves"),
-        Pepperoni(63,"Tomato_Sauce, Mozzarella_Cheese, Pepperoni"),
-        Barbeque_Chicken(68,"Tomato_Sauce, Mozzarella_Cheese, Chicken_Slices, Barbeque_Sauce"),
+        RANCH_HOUSE(50,"Tomato_Sauce, Mozzarella_Cheese, Salami, Mushroom"),
+        MARGHERITA(53,"Tomato_Sauce, Mozzarella_Cheese, Cherry_Tomato, Basil_Leaves"),
+        PEPPERONI(63,"Tomato_Sauce, Mozzarella_Cheese, Pepperoni"),
+        BARBEQUE_CHICKEN(68,"Tomato_Sauce, Mozzarella_Cheese, Chicken_Slices, Barbeque_Sauce"),
 
         ;
 
