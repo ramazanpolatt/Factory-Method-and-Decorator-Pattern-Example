@@ -1,7 +1,6 @@
 package com.company.Decorator;
 
 import com.company.Pizza.IPizza;
-import com.company.Pizza.ToppingType;
 
 public class Olive extends AbstractPizzaDecorator{
 

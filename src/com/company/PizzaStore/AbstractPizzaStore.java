@@ -1,8 +1,5 @@
 package com.company.PizzaStore;
 
-import com.company.Pizza.PizzaType;
-import com.company.Pizza.ToppingType;
-
 import java.util.List;
 import java.util.Map;
 

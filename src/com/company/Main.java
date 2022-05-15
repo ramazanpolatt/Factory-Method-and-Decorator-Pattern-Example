@@ -5,7 +5,6 @@ import com.company.Decorator.BasilLeaves;
 import com.company.Decorator.Salami;
 import com.company.Pizza.IPizza;
 import com.company.Pizza.Pizza;
-import com.company.Pizza.PizzaType;
 
 public class Main {
 

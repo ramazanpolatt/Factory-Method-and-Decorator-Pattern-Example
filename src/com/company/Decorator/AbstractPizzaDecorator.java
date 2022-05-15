@@ -1,9 +1,6 @@
 package com.company.Decorator;
 
 import com.company.Pizza.IPizza;
-import com.company.Pizza.PizzaType;
-
-import java.util.List;
 
 public abstract class AbstractPizzaDecorator  implements IPizza {
 
