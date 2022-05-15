@@ -1,19 +1,19 @@
 package com.company.PizzaStore;
 
-import Interfaces.IPizzaStore;
 
-public class PizzaStoreFactory {
-    public IPizzaStore getPizzaStore(PizzaStoreName storeName){
-        IPizzaStore pizzaFactory = null;
+
+public  class PizzaStoreFactory {
+    public static AbstractPizzaStore getPizzaStore(PizzaStoreName storeName){
+        AbstractPizzaStore pizzaFactory = null;
         switch (storeName) {
             case MAMA_JONES:
-                pizzaFactory = new MamaJonasPizzaStore();
+                pizzaFactory = new MamaJonesPizzaStore();
                 break;
             case PIZZA_GLOBALE:
-                pizzaFactory = new PizzaGlobalePizzaStore();
+                pizzaFactory = new PizzaGlobaleStore();
                 break;
             case PIZZA_HAT:
-                pizzaFactory = new PizzaHatPizzaStore();
+                pizzaFactory = new PizzaHatStore();
                 break;
 
         }

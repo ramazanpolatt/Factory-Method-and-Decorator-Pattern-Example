@@ -14,7 +14,7 @@ public  class PizzaGlobaleStore extends AbstractPizzaStore{
 
     public PizzaGlobaleStore()
     {
-        super(new PizzaGlobalePizzaStoreInformation());
+        super(new PizzaGlobalePizzaStoreInformation(),"Pizza Globale");
 
 
     }

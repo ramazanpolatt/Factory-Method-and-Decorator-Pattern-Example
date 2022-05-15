@@ -11,9 +11,10 @@ import com.company.PizzaStore.Informations.MamaJonesPizzaStoreInformation;
 
 public  class MamaJonesPizzaStore extends AbstractPizzaStore{
 
+
     public MamaJonesPizzaStore()
     {
-        super(new MamaJonesPizzaStoreInformation());
+        super(new MamaJonesPizzaStoreInformation(),"Mama Jones Pizza");
 
 
     }

@@ -17,6 +17,7 @@ public class Main {
 	// write your code here
 
 
+/*
 
         AbstractPizzaStore pizzaStore = new MamaJonesPizzaStore();
         int count=0;
@@ -40,6 +41,15 @@ public class Main {
         System.out.println(selectedPizza);
         selectedPizza=pizzaStore.addTopping(selectedPizza,1);
         System.out.println(selectedPizza);
+*/
+
+        PizzaStoreApp pizzaStoreApp = new PizzaStoreApp();
+        pizzaStoreApp.showAvailablePizzaStores();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please select a pizzaStore");
+        int pizzaStoreIndex= scanner.nextInt();
+        pizzaStoreApp.selectPizzaStore(pizzaStoreIndex);
+        pizzaStoreApp.showAvailablePizzas();
 
     }
 }
