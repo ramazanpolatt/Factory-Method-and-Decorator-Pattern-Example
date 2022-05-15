@@ -9,7 +9,7 @@ public class Pizza implements IPizza {
     private String ingredients;
     private PizzaType pizzaType;
 
-    public Pizza(int cost,String ingredients, PizzaType pizzaType) {
+    public Pizza( PizzaType pizzaType,String ingredients,int cost) {
         this.cost = cost;
         this.ingredients = ingredients;
         this.pizzaType = pizzaType;
@@ -31,5 +31,8 @@ public class Pizza implements IPizza {
         return pizzaType;
     }
 
-
+    @Override
+    public String toString() {
+        return String.format("%s Pizza ingredients : %s Cost: %d",pizzaType.name(),ingredients,cost);
+    }
 }

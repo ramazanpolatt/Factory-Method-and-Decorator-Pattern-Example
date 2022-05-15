@@ -1,15 +1,18 @@
 package com.company.PizzaStore;
 
+import com.company.Decorator.AbstractPizzaDecorator;
+import com.company.Pizza.IPizza;
 import com.company.Pizza.PizzaType;
 import com.company.Pizza.ToppingType;
 import com.company.PizzaStore.Informations.APizzaInformations;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 public abstract class AbstractPizzaStore {
 
-    private List<PizzaType> availablePizzaTypes;
+    private List<PizzaType> availablePizzas;
     private Map<PizzaType,String> ingredientOfPizzas;
     private Map<PizzaType,Integer> costOfPizzas;
 
@@ -23,20 +26,78 @@ public abstract class AbstractPizzaStore {
         initializer();
     }
 
-    public void orderPizza(int pizzaTypeIndex)
+    public IPizza orderPizza(int pizzaTypeIndex)
+    {
+        if(pizzaTypeIndex> availablePizzas.size()||pizzaTypeIndex<0)
+        {
+            System.out.println("PizzaTypeIndex must be valid");
+            System.exit(0);
+        }
+        PizzaType desiredPizza= availablePizzas.get(pizzaTypeIndex);
+        return createPizza(desiredPizza,ingredientOfPizzas.get(desiredPizza),costOfPizzas.get(desiredPizza));
+    }
+
+    public List<String> getAvailablePizzas()
+    {
+        List<String> availablePizzas= new LinkedList<>();
+        for (PizzaType availablePizza: this.availablePizzas)
+        {
+            availablePizzas.add(String.format("%s Pizza ( %s ) Cost: %d", availablePizza.name(),ingredientOfPizzas.get(availablePizza),costOfPizzas.get(availablePizza)));
+        }
+
+        return availablePizzas;
+    }
+
+    public List<String> getAvailableToppings()
     {
 
+        List<String> availableToppingList = new LinkedList<>();
+
+        for (ToppingType availableTopping:availableToppings
+             ) {
+
+            availableToppingList.add(String.format("%s - Cost : %d tl",availableTopping.getReadableNames(),costOfToppings.get(availableTopping)));
+
+        }
+        return availableToppingList;
     }
-    protected abstract  void orderPizza(PizzaType pizzaType);
+
+    public IPizza addTopping(IPizza pizza,int toppingIndex)
+    {
+        if(toppingIndex> availableToppings.size()||toppingIndex<0)
+        {
+            System.out.println("PizzaTypeIndex must be valid");
+            System.exit(0);
+        }
+
+        return decorate(pizza,availableToppings.get(toppingIndex));
+
+
+
+
+    }
+
+    protected abstract IPizza decorate(IPizza pizza,ToppingType toppingType);
+
+
+
+    protected abstract IPizza createPizza(PizzaType pizzaType,String ingredients,int cost);
 
     private void initializer()
     {
-        availablePizzaTypes = storeInformation.getAvailablePizzas();
+        try{
+
+        availablePizzas = storeInformation.getAvailablePizzas();
         ingredientOfPizzas= storeInformation.getIngredientsOfPizzas();
         costOfPizzas=storeInformation.getCostOfPizzas();
-
         availableToppings=storeInformation.getAvailableToppings();
         costOfToppings=storeInformation.getCostOfToppings();
+
+        }
+        catch (Exception e)
+        {
+            System.out.println("Error occured at initializer function at AbstractPizzaStore.java error: "+e.getMessage());
+        }
     }
 
 }
