@@ -1,7 +1,6 @@
 package com.company.PizzaStore;
 
-import com.company.Decorator.AbstractPizzaDecorator;
-import com.company.Pizza.IPizza;
+import com.company.Interfaces.IPizza;
 import com.company.Pizza.PizzaType;
 import com.company.Pizza.ToppingType;
 import com.company.PizzaStore.Informations.APizzaInformations;
@@ -38,7 +37,7 @@ public abstract class AbstractPizzaStore {
     public List<String> getAvailablePizzas() {
         List<String> availablePizzas = new LinkedList<>();
         for (PizzaType availablePizza : this.availablePizzas) {
-            availablePizzas.add(String.format("%s Pizza ( %s ) Cost: %d", availablePizza.name(), ingredientOfPizzas.get(availablePizza), costOfPizzas.get(availablePizza)));
+            availablePizzas.add(String.format("%-20s Pizza (%s) Cost: %d", availablePizza.name(), ingredientOfPizzas.get(availablePizza), costOfPizzas.get(availablePizza)));
         }
 
         return availablePizzas;
@@ -51,7 +50,7 @@ public abstract class AbstractPizzaStore {
         for (ToppingType availableTopping : availableToppings
         ) {
 
-            availableToppingList.add(String.format("%s - Cost : %d tl", availableTopping.getReadableNames(), costOfToppings.get(availableTopping)));
+            availableToppingList.add(String.format("%-21s - Cost : %d tl", availableTopping.getReadableNames(), costOfToppings.get(availableTopping)));
 
         }
         return availableToppingList;
@@ -95,5 +94,10 @@ public abstract class AbstractPizzaStore {
 
     public String getStoreName() {
         return storeName;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return ((AbstractPizzaStore)obj).getStoreName().equals(getStoreName());
     }
 }

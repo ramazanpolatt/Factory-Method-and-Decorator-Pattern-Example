@@ -1,6 +1,6 @@
 package com.company.Pizza;
 
-import java.util.List;
+import com.company.Interfaces.IPizza;
 
 public class Pizza implements IPizza {
 

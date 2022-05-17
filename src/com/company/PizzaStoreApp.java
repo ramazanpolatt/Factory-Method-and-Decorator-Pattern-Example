@@ -1,17 +1,14 @@
 package com.company;
 
-import com.company.ConcreteClasses.Order;
+import com.company.Order.Order;
 import com.company.Interfaces.IOrder;
-import com.company.Pizza.IPizza;
+import com.company.Interfaces.IPizza;
 import com.company.PizzaStore.AbstractPizzaStore;
 import com.company.PizzaStore.PizzaStoreFactory;
 import com.company.PizzaStore.PizzaStoreName;
 
-import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.logging.ConsoleHandler;
 
 public class PizzaStoreApp {
 
@@ -30,58 +27,167 @@ public class PizzaStoreApp {
     }
     public void run()
     {
-        int pizzaStoreIndex;
-        boolean hasStoreSelected=false;
-        while(!hasStoreSelected)
+
+        while(true)
         {
+
+                selectPizzaStoreSection();
+                while(true)
+                {
+                    showNavigation();
+                    try{
+
+
+                        int navigationIndex=scanner.nextInt();
+                        switch (navigationIndex)
+                        {
+                            case 1:
+                                orderOperations();
+                                break;
+                            case 2:
+                                selectPizzaSection();
+                                addToppingSection();
+                                break;
+                            case 3:
+                                selectPizzaStoreSection();
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    catch (InputMismatchException exception)
+                    {
+                        System.err.println("Please enter a valid navigation value");
+                        scanner.next();
+                    }
+                }
+        }
+    }
+
+
+    private void orderOperations() {
+        if(orderList.isEmpty())
+        {
+
+            System.out.println("There is no order");
+
+        }
+        boolean exitPressed=false;
+        while(!orderList.isEmpty()&&!exitPressed){
+            showOrders();
+            System.out.println("Please enter the order that number that you want to cancel or enter 0 to go back main menu");
+            try {
+                int orderSelection = scanner.nextInt();
+                if (orderSelection != 0) {
+                    if (orderSelection > orderList.size() || orderSelection <= 0) {
+                        System.out.println("Please enter a valid order");
+                    } else {
+                        cancelOrder(orderSelection);
+                    }
+                } else {
+                    exitPressed = true;
+                }
+            }
+            catch (InputMismatchException exception)
+            {
+                System.err.println("Please enter a valid  value");
+                scanner.next();
+            }
+        }
+    }
+
+
+    private void selectPizzaStoreSection() {
+        AbstractPizzaStore currentPizzaStore=null;
+        if(selectedPizzaStore!=null)
+        {
+            currentPizzaStore=selectedPizzaStore;
+            selectedPizzaStore=null;
+
+        }
+        while (selectedPizzaStore == null) {
 
             showAvailablePizzaStores();
-            System.out.println("Please select a pizzaStore");
-            pizzaStoreIndex= scanner.nextInt();
-            if(selectPizzaStore(pizzaStoreIndex))
-                hasStoreSelected=true;
+            selectPizzaStore();
+            if(currentPizzaStore!=null && !currentPizzaStore.equals(selectedPizzaStore))
+            {
+                orderList.clear();
+            }
 
         }
+    }
 
-        int pizzaIndex;
-        boolean hasPizzaSelected=false;
-        while(!hasPizzaSelected)
-        {
+    private void selectPizzaSection() {
+        while (selectedPizza == null) {
 
             showAvailablePizzas();
-            System.out.println("Please select a pizza");
-            pizzaIndex= scanner.nextInt();
-            if(selectPizza((pizzaIndex)))
-            {
-
-                hasPizzaSelected=true;
-            }
-
+            selectPizza();
 
         }
+    }
 
-        boolean hasToppingSectionFinished=false;
-        while(!hasToppingSectionFinished)
+    private void addToppingSection() {
+        boolean hasToppingSectionFinished = false;
+        while (!hasToppingSectionFinished)
         {
             showAvailableToppings();
-            System.out.printf("Please select a toppping\n" +
-                    "To finish topping section please enter 0 \n");
-            int toppingIndex=scanner.nextInt();
-            if(toppingIndex==0)
-            {
-                orderList.add(new Order(selectedPizza));
-                showOrders();
-                hasToppingSectionFinished=true;
-            }
-            else
-            {
-                selectTopping(toppingIndex);
-            }
 
+            System.out.print("""
+                    Please select a toppping To finish topping section please enter (0) \n\s
+                    """);
+            try
+            {
+
+
+            int toppingIndex = scanner.nextInt();
+            if (toppingIndex == 0) {
+                orderList.add(new Order(selectedPizza));
+                hasToppingSectionFinished = true;
+                selectedPizza = null;
+            } else
+            {
+                addTopping(toppingIndex);
+            }
+            }
+            catch (InputMismatchException exception)
+            {
+                System.err.println("Please enter a valid topping value");
+                scanner.next();
+            }
+        }
+    }
+
+    private void selectPizza() {
+        int pizzaIndex;
+        System.out.println("Please select a pizza");
+        try{
+            pizzaIndex= scanner.nextInt();
+            selectPizza((pizzaIndex));
+        }
+        catch (InputMismatchException exception)
+        {
+            System.err.println("Please enter a valid pizza value");
+            scanner.next();
         }
 
 
     }
+
+    private void selectPizzaStore() {
+        int pizzaStoreIndex;
+        System.out.println("Please select a pizzaStore");
+        try{
+            pizzaStoreIndex= scanner.nextInt();
+            selectPizzaStore(pizzaStoreIndex);
+        }
+        catch (InputMismatchException exception)
+        {
+            System.err.println("Please enter a valid pizza store value");
+            scanner.next();
+        }
+
+    }
+
     public void showAvailablePizzaStores()
     {
         int count=0;
@@ -90,23 +196,41 @@ public class PizzaStoreApp {
             count+=1;
             System.out.println(count+"-) "+pizzaStore);
         }
+        printDashedLine();
+
     }
 
-    public boolean selectPizzaStore(int pizzaStoreIndex)
+    private void cancelOrder(int orderIndex)
     {
-        boolean result=false;
+        orderList.remove(orderIndex-1);
+    }
+
+
+    public void selectPizzaStore(int pizzaStoreIndex)
+    {
+
         if(pizzaStoreIndex>pizzaStoreList.size()||pizzaStoreIndex<=0)
         {
             System.out.println("Please enter a valid pizza store value");
-            return result;
+
         }
 
-        selectedPizzaStore=pizzaStoreList.get(pizzaStoreIndex-1);
-        result=true;
-        return result;
+        selectedPizzaStore=pizzaStoreList.get(pizzaStoreIndex-1);    }
 
+    public void showNavigation()
+    {
+        System.out.println("1.See or cancel your orders");
+        if(orderList.isEmpty())
+        {
+            System.out.println("2.Order pizza");
+        }
+        else
+        {
+            System.out.println("2.Order another pizza");
+        }
+
+        System.out.println("3.Go back to pizza shop selection");
     }
-
     public void showAvailablePizzas()
     {
 
@@ -120,19 +244,17 @@ public class PizzaStoreApp {
         }
     }
 
-    public boolean selectPizza(int selectedPizzaIndex)
+    public void selectPizza(int selectedPizzaIndex)
     {
-        boolean result=false;
+
         if(selectedPizzaIndex>selectedPizzaStore.getAvailablePizzas().size()||selectedPizzaIndex<=0)
         {
             System.out.println("Please enter a valid pizza index value");
-            return result;
+
         }
         selectedPizza= selectedPizzaStore.orderPizza(selectedPizzaIndex-1);
         showSelectedPizza();
 
-        result=true;
-        return result;
     }
 
 
@@ -145,24 +267,30 @@ public class PizzaStoreApp {
         while(availableToppingIterator.hasNext())
         {
             count++;
-            System.out.println(count+"-) "+ availableToppingIterator.next());
+            System.out.printf("%3d -) %s\n",count,availableToppingIterator.next());
+
 
         }
     }
 
-    public boolean selectTopping(int selectedToppingIndex)
+    public void addTopping(int selectedToppingIndex)
     {
-        boolean result=false;
+
         if(selectedToppingIndex>selectedPizzaStore.getAvailableToppings().size()||selectedToppingIndex<=0)
         {
-            System.out.println("Please enter a valid pizza index value");
-            return result;
-        }
-        selectedPizza= selectedPizzaStore.addTopping(selectedPizza,selectedToppingIndex-1);
-        showSelectedPizza();
+            System.err.println("Please enter a valid pizza index value");
 
-        result=true;
-        return result;
+        }
+        else
+        {
+            selectedPizza= selectedPizzaStore.addTopping(selectedPizza,selectedToppingIndex-1);
+            showSelectedPizza();
+        }
+
+
+
+
+
     }
     private void initialize()
     {
@@ -178,6 +306,7 @@ public class PizzaStoreApp {
 
     public void showOrders()
     {
+        System.out.println("Orders:");
         System.out.println("Pizza Shop : "+selectedPizzaStore.getStoreName());
         System.out.println("Pizzas : ");
 
@@ -186,14 +315,22 @@ public class PizzaStoreApp {
              ) {
             count++;
             totalCost+=order.getCost();
-            System.out.printf("%d. %s",count,order.getOrderedPizza());
+            System.out.printf("%d. %s \n",count,order.getOrderedPizza());
 
         }
         System.out.println("Total Number of Pizzas : " +count);
         System.out.println("Total cost : "+totalCost+" tl");
+        printDashedLine();
+
     }
     private void showSelectedPizza()
     {
         System.out.println("Selected Pizza : "+selectedPizza);
+    }
+
+    private void printDashedLine()
+    {
+
+        System.out.println("-------------------------------------------------------------");
     }
 }

@@ -1,7 +1,7 @@
-package com.company.ConcreteClasses;
+package com.company.Order;
 
 import com.company.Interfaces.IOrder;
-import com.company.Pizza.IPizza;
+import com.company.Interfaces.IPizza;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

@@ -1,7 +1,5 @@
 package com.company.Interfaces;
 
-import com.company.Pizza.IPizza;
-
 public interface IOrder {
 
     public IPizza getOrderedPizza();

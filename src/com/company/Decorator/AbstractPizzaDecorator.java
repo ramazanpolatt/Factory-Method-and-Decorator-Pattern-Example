@@ -1,6 +1,6 @@
 package com.company.Decorator;
 
-import com.company.Pizza.IPizza;
+import com.company.Interfaces.IPizza;
 import com.company.Pizza.PizzaType;
 
 public abstract class AbstractPizzaDecorator  implements IPizza {
@@ -28,6 +28,6 @@ public abstract class AbstractPizzaDecorator  implements IPizza {
 
     @Override
     public String toString() {
-        return String.format("%s Pizza (%s) Cost: %d  ",getPizzaType(),getIngredients(),getCost());
+        return String.format("%s Pizza Ingredients:  (%s) Cost: %d  ",getPizzaType(),getIngredients(),getCost());
     }
 }

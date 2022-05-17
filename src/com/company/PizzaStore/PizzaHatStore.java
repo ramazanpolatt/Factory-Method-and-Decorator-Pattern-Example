@@ -1,12 +1,11 @@
 package com.company.PizzaStore;
 
 import com.company.Decorator.*;
-import com.company.Pizza.IPizza;
+import com.company.Interfaces.IPizza;
 import com.company.Pizza.Pizza;
 import com.company.Pizza.PizzaType;
 
 import com.company.Pizza.ToppingType;
-import com.company.PizzaStore.Informations.MamaJonesPizzaStoreInformation;
 import com.company.PizzaStore.Informations.PizzaHatPizzaStoreInformation;
 
 

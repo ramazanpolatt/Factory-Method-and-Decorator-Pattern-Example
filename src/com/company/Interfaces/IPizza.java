@@ -1,4 +1,6 @@
-package com.company.Pizza;
+package com.company.Interfaces;
+
+import com.company.Pizza.PizzaType;
 
 import java.util.List;
 
